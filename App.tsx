@@ -2,7 +2,6 @@ import 'react-native-gesture-handler'
 import { Provider } from 'react-redux'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { Provider as PaperProvider } from 'react-native-paper'
 import { PersistGate } from 'redux-persist/integration/react'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
@@ -16,10 +15,8 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
           <AppThemeProvider>
-            <PaperProvider>
-              <LanguageHelper />
-              <Navigation />
-            </PaperProvider>
+            <LanguageHelper />
+            <Navigation />
           </AppThemeProvider>
         </SafeAreaProvider>
       </PersistGate>

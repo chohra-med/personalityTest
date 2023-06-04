@@ -1,14 +1,12 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components/native';
-
-import { fontMap } from '../theme/Typography';
-import { lightTheme, darkTheme } from '~/theme/index';
-import { useSelector } from 'react-redux';
-import appConfigSelectors from '~/redux/appConfig/appConfigSelectors';
+import React from 'react'
 import { Provider as PaperProvider } from 'react-native-paper'
+import { ThemeProvider } from 'styled-components/native'
+
+import { allFonts } from '~/theme/Typography'
+import { lightTheme, darkTheme } from '~/theme/index'
 
 interface AppThemeProviderProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 /*
   This wrapper around our theme provider is very useful for dynamically updating our theme
@@ -19,18 +17,15 @@ interface AppThemeProviderProps {
 export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
   children,
 }) => {
-
-  // fonts const, should have the app Fonts
-  const fonts = fontMap.ltr;
   // isDarkTheme, should be the boolean for dark theme
-  const isDarkTheme: boolean = useSelector(appConfigSelectors.isDarkMode)
+  const isDarkTheme: boolean = false
 
+  const themeColor = isDarkTheme ? darkTheme : lightTheme
+  const colorAppTheme = { ...themeColor, allFonts }
 
-  const themeColor = isDarkTheme ? darkTheme : lightTheme;
-  const colorAppTheme = { ...themeColor, fonts };
-
-  return <ThemeProvider theme={colorAppTheme}>
-    <PaperProvider theme={colorAppTheme}>{children}</PaperProvider>
-  </ThemeProvider>
-
-};
+  return (
+    <ThemeProvider theme={colorAppTheme}>
+      <PaperProvider theme={colorAppTheme}>{children}</PaperProvider>
+    </ThemeProvider>
+  )
+}

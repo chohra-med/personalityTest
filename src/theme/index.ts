@@ -1,21 +1,31 @@
 import {colors} from './Colors';
-import screen from './Screens';
 import {space, spaceNumbers} from './Space';
 import {fontSizeNumbers} from './Typography';
+import { DefaultTheme } from 'react-native-paper'
 
 const lightTheme = {
+  myOwnProperty: true,
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    ...colors.light,
+  },
   space,
   spaceNumbers,
   fontSizeNumbers,
-  colors: colors.light,
-  screen,
+  roundness: 2,
 };
 const darkTheme = {
+  myOwnProperty: true,
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    ...colors.dark,
+  },
+
   space,
   spaceNumbers,
   fontSizeNumbers,
-  colors: colors.dark,
-  screen,
 };
 
 
