@@ -1,8 +1,10 @@
 import React from 'react'
 import { Provider as PaperProvider } from 'react-native-paper'
+import { useSelector } from 'react-redux'
 import { ThemeProvider } from 'styled-components/native'
+import appConfigSelectors from '~/redux/appConfig/appConfigSelectors'
 
-import { allFonts } from '~/theme/Typography'
+import { fontMap } from '~/theme/Typography'
 import { lightTheme, darkTheme } from '~/theme/index'
 
 interface AppThemeProviderProps {
@@ -17,8 +19,13 @@ interface AppThemeProviderProps {
 export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
   children,
 }) => {
+
+  // fonts const, should have the app Fonts
+  const allFonts = fontMap.ltr;
   // isDarkTheme, should be the boolean for dark theme
-  const isDarkTheme: boolean = false
+  const isDarkTheme: boolean = useSelector(appConfigSelectors.isDarkMode)
+
+
 
   const themeColor = isDarkTheme ? darkTheme : lightTheme
   const colorAppTheme = { ...themeColor, allFonts }
