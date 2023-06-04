@@ -1,0 +1,135 @@
+{
+  "name": "personalitytest",
+  "version": "0.0.1",
+  "author": "Malik Chohra",
+  "email": "choumed02@gmail.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
+    "check-types": "tsc",
+    "android:clean": "cd android && ./gradlew clean && cd ..",
+    "link:ios": "cd ios/ && pod install && cd ..",
+    "create-apk": "cd android/  && ./gradlew assembleRelease && cd ..",
+    "create-aab": "cd android/ && ./gradlew clean && ./gradlew bundleRelease && cd ..",
+    "e2e:bundler-ios": "RN_SRC_EXT='e2e.tsx,e2e.ts' yarn start --reset-cache",
+    "e2e:build-ios-debug": "detox build -c ios.sim.debug",
+    "e2e:build-ios-release": "detox build -c ios.sim.release",
+    "e2e:test-ios-debug": "detox test -c ios.sim.debug",
+    "e2e:test-ios-release": "detox test -c ios.sim.release",
+    "e2e:build-android-debug": "yarn android:clean && PLATFORM='android' detox build -c android.emu.debug",
+    "e2e:build-android-release": "yarn android:clean && PLATFORM='android' detox build -c android.emu.release",
+    "e2e:test-android-debug": "PLATFORM='android' detox test -c android.emu.debug",
+    "e2e:test-android-release": "PLATFORM='android' detox test -c android.emu.release"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-navigation/bottom-tabs": "^6.5.5",
+    "@react-navigation/native": "^6.1.4",
+    "@react-navigation/stack": "^6.3.14",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@testing-library/react-native": "^12.0.0-rc.0",
+    "axios": "^1.3.3",
+    "detox": "^19.7.1",
+    "i18next": "^22.4.10",
+    "jasmine": "^3.8.0",
+    "jest-styled-components": "^7.1.1",
+    "lodash": "^4.17.21",
+    "luxon": "^3.2.1",
+    "react": "18.2.0",
+    "react-i18next": "^12.2.0",
+    "react-native": "0.71.3",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-gesture-handler": "^2.9.0",
+    "react-native-localize": "^2.2.4",
+    "react-native-paper": "^5.2.0",
+    "react-native-safe-area-context": "^4.5.0",
+    "react-native-screens": "^3.20.0",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-vector-icons": "^9.2.0",
+    "react-redux": "^8.0.5",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.6",
+    "styled-system": "^5.1.5",
+    "ts-jest": "^29.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@testing-library/jest-native": "^5.4.2",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/jasmine": "^3.8.2",
+    "@types/jest": "^29.2.1",
+    "@types/lodash": "^4.14.191",
+    "@types/react": "^18.0.24",
+    "@types/react-test-renderer": "^18.0.0",
+    "babel-jest": "^29.2.1",
+    "eslint": "^8.19.0",
+    "jest": "^29.4.3",
+    "jest-jasmine2": "^29.4.3",
+    "metro-react-native-babel-preset": "0.73.7",
+    "prettier": "^2.4.1",
+    "react-test-renderer": "18.2.0",
+    "typescript": "4.8.4"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx$",
+    "setupFiles": [
+      "./__tests__/jestTestSteup.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+      "\\.svg": "<rootDir>/__mocks__/svgMock.ts",
+      "~/redux/(.*)": "<rootDir>/src/redux/$1",
+      "~/hooks/(.*)": "<rootDir>/src/hooks/$1",
+      "~/utils/(.*)": "<rootDir>/src/utils/$1",
+      "~/components/(.*)": "<rootDir>/src/components/$1",
+      "~/modals/(.*)": "<rootDir>/src/modals/$1",
+      "~/theme/(.*)": "<rootDir>/src/theme/$1",
+      "~/navigation/(.*)": "<rootDir>/src/navigation/$1"
+    }
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+#This is an example of Fastlane file for shipping to Ios
+
+platform :ios do 
+    desc 'Ship to Apple Store'
+     lane :beta do
+       build
+       pilot
+       commit_version_bump(message: 'Bump build', xcodeproj: './ios/ebookList.xcodeproj')
+       push_to_git_remote
+     end 
+    end
+ platform :android do 
+
+    desc 'Ship to Playstore Beta.'
+     lane :beta do
+        build
+        supply(track: 'beta', track_promote_to: 'beta')
+        git_commit(path: ['./android/gradle.properties'], message: 'Bump versionCode')
+        push_to_git_remote
+     end
+    end
+    private_lane :testflight_build do 
