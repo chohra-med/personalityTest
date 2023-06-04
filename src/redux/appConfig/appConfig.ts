@@ -4,7 +4,7 @@ import {AppConfigConfigurationState, AppLanguageType} from './appConfigModel';
 
 let initialState: AppConfigConfigurationState = {
   isDarkMode: false,
-  appLanguage: AppLanguageType.ARABIC,
+  appLanguage: AppLanguageType.ENGLISH,
 };
 
 const appConfigSlice = createSlice({

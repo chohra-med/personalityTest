@@ -5,6 +5,8 @@ import styled from 'styled-components/native'
 import { questionsActions } from '~/redux/questions/questions'
 import useActions from '~/hooks/useActions'
 import { useSelector } from 'react-redux'
+import Button from '~/components/Button'
+import { SectionTitle } from '~/components/Text'
 
 const StyledSafeAreaView = styled(SafeAreaView)`
   flex: 1;
@@ -22,8 +24,9 @@ function HomeScreen() {
 
     return (
         <StyledSafeAreaView testID="screen.HomeScreen">
-            <Text>{t('common:General.welcome')}</Text>
+            <SectionTitle>{t('common:General.welcome')}</SectionTitle>
             <Text>This the Home Screen</Text>
+            <Button title='Start Personality Test' mode='contained' />
         </StyledSafeAreaView>
     )
 }

@@ -1,8 +1,8 @@
-import adjustSize from "~/utils/helpers/adjustSize";
+import adjustSize from '~/utils/helpers/adjustSize';
 
 const allFonts = {
-  ROBOTO_REGULAR: 'Roboto-Regular',
-  ROBOTO_BOLD: 'Roboto-SemiBold',
+  regular: 'Roboto-Regular',
+  bold: 'Roboto-SemiBold',
 };
 
 export interface IFontGroup {
@@ -13,8 +13,8 @@ type LanguagesWithFonts = 'Arabic' | 'ltr';
 
 const fontMap: Record<LanguagesWithFonts, IFontGroup> = {
   ltr: {
-    regular: allFonts.ROBOTO_REGULAR,
-    bold: allFonts.ROBOTO_BOLD,
+    regular: allFonts.regular,
+    bold: allFonts.bold,
   },
   Arabic: {
     regular: 'standard',

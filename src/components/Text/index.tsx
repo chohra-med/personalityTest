@@ -1,72 +1,110 @@
-import * as React from 'react';
-import { ColorValue, StyleProp, Text, TextStyle } from 'react-native';
-import { allFonts } from '~/theme/Typography';
-import adjustSize from '~/utils/helpers/adjustSize';
-import styled from 'styled-components/native';
+import styled from 'styled-components/native'
+import * as React from 'react'
+import { TextProps } from 'react-native'
+import {
+  ColorProps,
+  LayoutProps,
+  SpaceProps,
+  TypographyProps,
+  color,
+  layout,
+  space,
+  typography,
+} from 'styled-system'
+import { useTheme } from 'styled-components'
 
+export interface StyledTextProps
+  extends ColorProps,
+  TextProps,
+  SpaceProps,
+  TypographyProps,
+  LayoutProps {
+  children: React.ReactNode
+  testID?: string
+}
+export const StyledText = styled.Text<StyledTextProps>`
+  ${typography}
+  ${space}
+  ${color}
+  ${layout}
+`
 
-
-interface StyledTextProps {
-  h1?: boolean,
-  h2?: boolean,
-  h3?: boolean,
-  h4?: boolean,
-  h5?: boolean,
-  p?: boolean,
-  small?: boolean,
-  bold?: boolean,
-  italic?: boolean,
-  title?: string,
-  primary?: boolean,
-  secondary?: boolean,
-  primaryBold?: boolean,
-  textColor?: ColorValue,
-  style?: StyleProp<TextStyle>
+export const ScreenTitle: React.FC<StyledTextProps> = ({
+  children,
+  ...props
+}) => {
+  const theme = useTheme()
+  return (
+    <StyledText
+      textAlign="left"
+      fontFamily={theme.allFonts.bold}
+      fontSize={theme.fontSizeNumbers.s}
+      color={theme.colors.gray60}
+      marginLeft="l"
+      marginBottom="m"
+      {...props}
+    >
+      {children}
+    </StyledText>
+  )
 }
 
-const ThemedText = styled.Text`
-color: ${({ theme }) =>
-    theme.colors.text};
-`;
-
-const StyledText: React.FC<StyledTextProps> = ({
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  p,
-  bold,
-  italic,
-  title = '',
-  style,
-  primary,
-  secondary,
-  primaryBold,
-  textColor,
-  small,
+export const SectionTitle: React.FC<StyledTextProps> = ({
+  children,
   ...props
-}) => (
-  <ThemedText
-    style={[
-      h1 && { fontSize: adjustSize(48) },
-      h2 && { fontSize: adjustSize(32) },
-      h3 && { fontSize: adjustSize(20) },
-      h4 && { fontSize: adjustSize(18) },
-      h5 && { fontSize: adjustSize(16) },
-      p && { fontSize: adjustSize(12) },
-      small && { fontSize: adjustSize(10) },
-      bold && { fontWeight: 'bold' },
-      italic && { fontStyle: 'italic' },
-      primary && { fontFamily: allFonts.ROBOTO_REGULAR },
-      primaryBold && { fontFamily: allFonts.ROBOTO_BOLD },
-      secondary && { fontFamily: allFonts.ROBOTO_REGULAR },
-      !!textColor && { color: textColor },
-      style,
-    ]}
-    {...props}>
-    {title}
-  </ThemedText>
-);
+}) => {
+  const theme = useTheme()
+  console.log({theme})
+  return (
+    <StyledText
+      textAlign="left"
+      fontFamily={theme.allFonts.bold}
+      fontWeight={600}
+      fontSize={theme.fontSizeNumbers.s}
+      color={theme.colors.gray80}
+      marginLeft="l"
+      marginBottom="m"
+      {...props}
+    >
+      {children}
+    </StyledText>
+  )
+}
 
-export default StyledText;
+export const SectionText: React.FC<StyledTextProps> = ({
+  children,
+  ...props
+}) => {
+  const theme = useTheme()
+  return (
+    <StyledText
+      textAlign="left"
+      fontFamily={theme.allFonts.regular}
+      fontSize={theme.fontSizeNumbers.xs}
+      color={theme.colors.gray60}
+      marginLeft="l"
+      marginBottom="m"
+      {...props}
+    >
+      {children}
+    </StyledText>
+  )
+}
+
+export const ToastTitle: React.FC<StyledTextProps> = ({
+  children,
+  ...props
+}) => {
+  const theme = useTheme()
+  return (
+    <StyledText
+      textAlign="left"
+      fontFamily={theme.allFonts.bold}
+      fontSize={theme.fontSizeNumbers.xxs}
+      color={theme.colors.text}
+      {...props}
+    >
+      {children}
+    </StyledText>
+  )
+}
