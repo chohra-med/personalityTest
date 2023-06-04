@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import AppScreens, { AppScreensParamList } from './AppScreens';
 import HomeScreen from '~/screens/App/HomeScreen';
+import PersonalityTestScreen from '~/screens/App/PersonalityTestScreen';
 
 const Stack = createStackNavigator<AppScreensParamList>();
 const options = {
@@ -16,6 +17,11 @@ const AppNavigation = () => {
             <Stack.Screen
                 name={AppScreens.HOME_SCREEN}
                 component={HomeScreen}
+                options={options}
+            />
+            <Stack.Screen
+                name={AppScreens.PERSONALITY_TEST_SCREEN}
+                component={PersonalityTestScreen}
                 options={options}
             />
 

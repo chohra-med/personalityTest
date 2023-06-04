@@ -4,10 +4,12 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 export enum AppScreens {
     HOME_SCREEN = 'Home_Screen',
+    PERSONALITY_TEST_SCREEN = 'Personality_Test_Screen',
 }
 
 export type AppScreensParamList = {
     [AppScreens.HOME_SCREEN]: undefined;
+    [AppScreens.PERSONALITY_TEST_SCREEN]: undefined;
 };
 
 export type AppScreenProps<T extends AppScreens> = {

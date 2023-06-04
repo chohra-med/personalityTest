@@ -2,13 +2,13 @@ import {Question} from '~/api/types';
 import {RootState, store} from '../store';
 import questionsAdapter from './questionsAdapter';
 
-const booksSelectors = questionsAdapter.getSelectors<RootState>(
+const questionsSelectors = questionsAdapter.getSelectors<RootState>(
   s => s.questions,
 );
 
 //@ts-ignore
-export const selectAllBooks = () => booksSelectors.selectAll(store.getState());
+export const selectAllQuestions = () => questionsSelectors.selectAll(store.getState());
 
-export const selectBookById =
+export const selectQuestionById =
   (questionId: Question['id']) => (state: RootState) =>
-    booksSelectors.selectById(state, questionId);
+  questionsSelectors.selectById(state, questionId);

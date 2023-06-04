@@ -2,7 +2,7 @@ import adjustSize from '~/utils/helpers/adjustSize';
 
 const allFonts = {
   regular: 'Roboto-Regular',
-  bold: 'Roboto-SemiBold',
+  bold: 'Roboto-Bold',
 };
 
 export interface IFontGroup {

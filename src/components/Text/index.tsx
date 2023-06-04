@@ -54,7 +54,6 @@ export const SectionTitle: React.FC<StyledTextProps> = ({
   ...props
 }) => {
   const theme = useTheme()
-  console.log({theme})
   return (
     <StyledText
       textAlign="left"
