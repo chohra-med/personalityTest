@@ -2,8 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
 import AppScreens, { AppScreensParamList } from './AppScreens';
-import BookList from '~/screens/BookList';
-import BookScreen from '~/screens/BookScreen';
+import HomeScreen from '~/screens/App/HomeScreen';
 
 const Stack = createStackNavigator<AppScreensParamList>();
 const options = {
@@ -13,17 +12,13 @@ const options = {
 
 const AppNavigation = () => {
     return (
-        <Stack.Navigator initialRouteName={AppScreens.BOOK_LIST}>
+        <Stack.Navigator initialRouteName={AppScreens.HOME_SCREEN}>
             <Stack.Screen
-                name={AppScreens.BOOK_LIST}
-                component={BookList}
+                name={AppScreens.HOME_SCREEN}
+                component={HomeScreen}
                 options={options}
             />
-            <Stack.Screen
-                name={AppScreens.BOOK_SCREEN}
-                component={BookScreen}
-                options={options}
-            />
+
         </Stack.Navigator>
     );
 };

@@ -3,15 +3,11 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 
 export enum AppScreens {
-    TABBED_APP = 'TabbedApp',
-    BOOK_LIST = 'BookList',
-    BOOK_SCREEN = 'BookScreen',
+    HOME_SCREEN = 'Home_Screen',
 }
 
 export type AppScreensParamList = {
-    [AppScreens.TABBED_APP]: undefined;
-    [AppScreens.BOOK_LIST]: undefined;
-    [AppScreens.BOOK_SCREEN]: { bookId: string };
+    [AppScreens.HOME_SCREEN]: undefined;
 };
 
 export type AppScreenProps<T extends AppScreens> = {
