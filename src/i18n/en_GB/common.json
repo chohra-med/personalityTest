@@ -1,11 +1,14 @@
 {
-   
-    "General": {
-        "cancel": "cancel",
-        "no": "no",
-        "yes": "yes",
-        "welcome":"welcome to the app",
-        "by":"by"
-    }
-  
+  "General": {
+    "cancel": "cancel",
+    "no": "no",
+    "yes": "yes",
+    "welcome": "Welcome to the Personality App Test",
+    "by": "by",
+    "next": "Next",
+    "youAre": "You Are: ",
+    "introvert": "Introvert",
+    "extrovert": "Extrovert ",
+    "finish": "Finish "
+  }
 }

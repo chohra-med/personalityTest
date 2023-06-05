@@ -4,7 +4,13 @@
         "cancel": "annuler",
         "no": "no",
         "yes": "oui",
-        "welcome":"bienvenue sur l'application",
-        "by":"par"
+        "welcome":"bienvenue sur l'application de test de personality",
+        "by":"par",
+        "next": "Suivant",
+        "youAre": "Vous etes: ",
+        "introvert": "Introvert",
+        "extrovert": "Extrovert ",
+        "finish": "Terminer "
+
     }
 }

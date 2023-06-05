@@ -7,8 +7,10 @@ const questionsSelectors = questionsAdapter.getSelectors<RootState>(
 );
 
 //@ts-ignore
-export const selectAllQuestions = () => questionsSelectors.selectAll(store.getState());
+export const selectAllQuestions = () =>questionsSelectors.selectAll(store.getState());
+
+export const selectLengthOfAllQuestions = () => selectAllQuestions.length;
 
 export const selectQuestionById =
   (questionId: Question['id']) => (state: RootState) =>
-  questionsSelectors.selectById(state, questionId);
+    questionsSelectors.selectById(state, questionId);
