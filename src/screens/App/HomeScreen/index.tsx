@@ -14,12 +14,14 @@ import AppScreens from '~/navigation/AppNavigation/AppScreens'
 const StyledSafeAreaView = styled(SafeAreaView)`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
-  padding-top: ${({ theme }) => theme.space.xxl};
+  padding-top: ${({ theme }) => theme.space.xxxxxl};
   align-items:center;
+  justify-content:center;
 `
 
 const StyledButton = styled(Button)`
-  margin-top: ${({ theme }) => theme.space.xxxxl};
+  margin-top: ${({ theme }) => theme.space.xxxxxl};
+  
   align-items:center;
 `
 function HomeScreen() {
@@ -38,7 +40,6 @@ function HomeScreen() {
     return (
         <StyledSafeAreaView testID="screen.HomeScreen">
             <SectionTitle>{t('common:General.welcome')}</SectionTitle>
-            <SectionText>This the Home Screen</SectionText>
             <StyledButton title='Start Personality Test' mode='contained' onPress={navigateToPesonalityTest} />
         </StyledSafeAreaView>
     )

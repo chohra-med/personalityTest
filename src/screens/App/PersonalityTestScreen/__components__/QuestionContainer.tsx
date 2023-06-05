@@ -61,7 +61,7 @@ const QuestionContainer: React.FC<QuestionContainerProps> = ({
         return <View />
     }
 
-    const { title, answers } = question
+    const {id, title, answers } = question
 
 
 
@@ -77,6 +77,7 @@ const QuestionContainer: React.FC<QuestionContainerProps> = ({
 
     return (
         <StyledListItem
+            key={id}
             title={<SectionTitle>{title}</SectionTitle>}
             titleNumberOfLines={3}
             description={<RadioButton.Group onValueChange={value => selectAnswer(value)} value={answeValue}  >

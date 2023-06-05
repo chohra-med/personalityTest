@@ -16,6 +16,13 @@ const StyledSafeAreaView = styled(SafeAreaView)`
   padding-top: ${({ theme }) => theme.space.xxl};
 `
 
+const ButtonContainer = styled.View`
+  flex-direction:row;
+  width: ${({ theme }) => theme.space.screenWidth};
+  justify-content:space-around;
+  padding-top: ${({ theme }) => theme.space.xxl};
+`
+
 const StyledButton = styled(Button)`
   margin-top: ${({ theme }) => theme.space.xxxxl};
   align-items:center;
@@ -25,12 +32,14 @@ function PersonalityTestScreen() {
   const [pageNumber, setPageNumber] = useState(0)
   const [answersList, setAnswersList] = useState([4])
   const { t } = useTranslation('common')
-  const navigation = useNavigation()
 
-  const questionsLength = useSelector(questionsSelectors.selectLengthOfAllQuestions)
-  console.log({ questionsLength })
   const goToNextQuestion = () => {
-    setPageNumber(prev => prev + 1)
+    if (pageNumber < 3)
+      setPageNumber(prev => prev + 1)
+  }
+  const goToPreviousQuestion = () => {
+    if (pageNumber > 0)
+      setPageNumber(prev => prev - 1)
   }
   const onChooseAnswer = (answerId: string) => {
     let nextAnswerList = answersList
@@ -44,7 +53,10 @@ function PersonalityTestScreen() {
       {pageNumber < 3 ?
         <>
           <QuestionContainer questionId={pageNumber} onPress={(answerId) => onChooseAnswer(answerId)} />
-          <StyledButton title={t('common:General.next')} mode='contained' onPress={goToNextQuestion} />
+          <ButtonContainer>
+            <StyledButton title={t('common:General.next')} mode='contained' onPress={goToNextQuestion} />
+            <StyledButton title={t('common:General.previous')} mode='contained' onPress={goToPreviousQuestion} />
+          </ButtonContainer>
         </>
         :
         <>
