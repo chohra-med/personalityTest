@@ -1,14 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 
 import styled from 'styled-components/native'
-import { useSelector } from 'react-redux'
-import { StyledText } from '~/components/Text'
 import { SectionTitle } from '~/components/Text'
-import FastImage from 'react-native-fast-image'
-import { questionsSelectors } from '~/redux/questions/questions'
-import { List, RadioButton, Switch } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
+import questionApi from '~/api/questionApi/questionApi'
 
 
 export type QuestionContainerProps = {
@@ -30,18 +25,18 @@ const ResultComponent: React.FC<QuestionContainerProps> = ({
     answerListId,
 }) => {
 
+    const [result, setResult] = useState(0)
+
     const { t } = useTranslation('common')
 
 
-    const [result, setResult] = useState(0)
-    const calculateResult = () => {
-        let sumOfResults = answerListId.reduce((a, b) => {
-            return a + b;
-        }, 3);
-        setResult(sumOfResults)
-        console.log({ result })
 
+
+    const calculateResult = async () => {
+        const nextResults = await questionApi.getResult(answerListId)
+        setResult(nextResults)
     }
+
     useEffect(() => {
         calculateResult()
     }, [])

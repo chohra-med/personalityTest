@@ -1,11 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View } from 'react-native'
 
 import styled from 'styled-components/native'
 import { useSelector } from 'react-redux'
-import { StyledText } from '~/components/Text'
 import { SectionTitle } from '~/components/Text'
-import FastImage from 'react-native-fast-image'
 import { questionsSelectors } from '~/redux/questions/questions'
 import { List, RadioButton, Switch } from 'react-native-paper'
 
@@ -26,7 +24,7 @@ border-color:${({ theme }) => theme.colors.gray800};
 `
 
 const StyledListItem = styled(List.Item).attrs(
-    ({ description, theme }: { description: string, theme: DefaultTheme }) => ({
+    ({ description, theme }: { description: string, theme }) => ({
         titleStyle: {
             fontFamily: theme.allFonts.bold,
             fontSize: description
@@ -63,7 +61,7 @@ const QuestionContainer: React.FC<QuestionContainerProps> = ({
         return <View />
     }
 
-    const { id, title, answers } = question
+    const { title, answers } = question
 
 
 

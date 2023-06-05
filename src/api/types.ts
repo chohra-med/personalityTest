@@ -13,5 +13,6 @@ export interface Question {
 
   answers: Array<Answer>;
 }
+export type AnswersId = Array<number>;
 
 export type Questions = Question[];
