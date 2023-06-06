@@ -3,6 +3,12 @@ import {initReactI18next} from 'react-i18next';
 
 import newLineProcessor from './newLineProcessor';
 
+// to fix null string with typescript linter
+declare module 'i18next' {
+  interface CustomTypeOptions {
+    returnNull: false;
+  }
+}
 //Languages
 import ArabicTranslation from './ar_SA';
 import EnglishTranslation from './en_GB';

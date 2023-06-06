@@ -81,8 +81,8 @@ const QuestionContainer: React.FC<QuestionContainerProps> = ({
             title={<SectionTitle>{title}</SectionTitle>}
             titleNumberOfLines={3}
             description={<RadioButton.Group onValueChange={value => selectAnswer(value)} value={answeValue}  >
-                {answers.map((answer) => (<AnswerContainer>
-                    <RadioButton.Item key={answer.id} status='unchecked' label={answer.title} value={String(answer.id)} />
+                {answers.map((answer) => (<AnswerContainer key={answer.id} >
+                    <RadioButton.Item status='unchecked' label={answer.title} value={String(answer.id)} />
                 </AnswerContainer>)
                 )
                 }

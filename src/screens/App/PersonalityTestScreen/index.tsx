@@ -34,11 +34,11 @@ function PersonalityTestScreen() {
   const { t } = useTranslation('common')
 
   const goToNextQuestion = () => {
-    if (pageNumber < 3)
+    if (pageNumber < 3  && answersList[pageNumber])
       setPageNumber(prev => prev + 1)
   }
   const goToPreviousQuestion = () => {
-    if (pageNumber > 0)
+    if (pageNumber > 0 && answersList[pageNumber])
       setPageNumber(prev => prev - 1)
   }
   const onChooseAnswer = (answerId: string) => {
@@ -54,8 +54,8 @@ function PersonalityTestScreen() {
         <>
           <QuestionContainer questionId={pageNumber} onPress={(answerId) => onChooseAnswer(answerId)} />
           <ButtonContainer>
-            <StyledButton title={t('common:General.next')} mode='contained' onPress={goToNextQuestion} />
             <StyledButton title={t('common:General.previous')} mode='contained' onPress={goToPreviousQuestion} />
+            <StyledButton title={t('common:General.next')} mode='contained' onPress={goToNextQuestion} />
           </ButtonContainer>
         </>
         :
