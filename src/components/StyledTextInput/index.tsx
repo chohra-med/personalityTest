@@ -11,8 +11,6 @@ import styled from 'styled-components/native';
 import { debounce } from 'lodash';
 
 import StyledText from '../Text';
-import IconEyeActive from '../../assets/icons/IconEyeActive.svg';
-import IconEyeInactive from '../../assets/icons/iconEyeInactive.svg';
 
 interface TextInputProps extends TextInputPropsRN {
   style?: StyleProp<ViewStyle>;
@@ -117,15 +115,7 @@ const TextInput = React.forwardRef<TextInputRN, TextInputProps>(
       }
     }, [setPasswordVisible, onIconClick, isPassword]);
 
-    const finalIcon = useMemo(() => {
-      if (icon) {
-        return icon;
-      }
-      if (isPassword) {
-        return passwordVisible ? <IconEyeActive /> : <IconEyeInactive />;
-      }
-      return null;
-    }, [icon, passwordVisible, isPassword]);
+
 
     return (
       <Container style={style}>
@@ -141,16 +131,7 @@ const TextInput = React.forwardRef<TextInputRN, TextInputProps>(
             {...props}
             testID={props.testID || 'input.text'} // THis has to be below {...props} because styled-components seems to set testID to undefined by default
           />
-          {finalIcon && (
-            <ButtonContainer>
-              <Icon
-                hitSlop={{ top: 16, right: 16, bottom: 16, left: 16 }}
-                onPress={onIconPress}
-                testID="icon.password">
-                {finalIcon}
-              </Icon>
-            </ButtonContainer>
-          )}
+
         </Row>
         {errorMessage ? (
           <ErrorMessage testID={'text.error'}>{errorMessage}</ErrorMessage>

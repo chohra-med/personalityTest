@@ -9,7 +9,6 @@ export type ButtonMode =
   | 'contained-tonal'
 
 export type ButtonProps = {
-  icon?: React.ReactNode
   onPress?: () => void
   title?: string
   mode?: ButtonMode
@@ -19,7 +18,6 @@ export type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({
   title = '',
-  icon,
   onPress,
   mode = 'text',
   ...rest
@@ -33,7 +31,6 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <RNPaperButton
       labelStyle={mode === 'text' && { textDecorationLine: 'underline' }}
-      icon={icon}
       mode={mode}
       onPress={onButtonPress}
       {...rest}
