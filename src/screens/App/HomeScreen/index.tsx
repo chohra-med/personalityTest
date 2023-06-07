@@ -34,13 +34,14 @@ function HomeScreen() {
         loadAllQuestions()
     }, [loadAllQuestions])
 
-    const navigateToPesonalityTest = useCallback(() => {
+    const handleStartTest = useCallback(() => {
         navigation.navigate(AppScreens.PERSONALITY_TEST_SCREEN)
     }, [navigation])
+
     return (
         <StyledSafeAreaView testID="screen.HomeScreen">
             <SectionTitle>{t('common:General.welcome')}</SectionTitle>
-            <StyledButton title='Start Personality Test' mode='contained' onPress={navigateToPesonalityTest} />
+            <StyledButton title='Start Personality Test' mode='contained' onPress={handleStartTest} testID='button.startTest' />
         </StyledSafeAreaView>
     )
 }

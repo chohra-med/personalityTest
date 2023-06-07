@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { render } from '@testing-library/react-native'
 
 import LoadingScreen from '../LoadingScreen'
 import { customRender } from '../../../__tests__/testHelper'

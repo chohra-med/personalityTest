@@ -34,7 +34,7 @@ function PersonalityTestScreen() {
   const { t } = useTranslation('common')
 
   const goToNextQuestion = () => {
-    if (pageNumber < 3  && answersList[pageNumber])
+    if (pageNumber < 3 && answersList[pageNumber])
       setPageNumber(prev => prev + 1)
   }
   const goToPreviousQuestion = () => {

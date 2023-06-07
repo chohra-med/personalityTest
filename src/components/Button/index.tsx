@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { Button as RNPaperButton } from 'react-native-paper'
+import { ButtonProps, Button as RNPaperButton } from 'react-native-paper'
 
 export type ButtonMode =
   | 'text'
@@ -8,7 +8,7 @@ export type ButtonMode =
   | 'elevated'
   | 'contained-tonal'
 
-export type ButtonProps = {
+export type StyledButtonProps = {
   onPress?: () => void
   title?: string
   mode?: ButtonMode
@@ -16,7 +16,7 @@ export type ButtonProps = {
 
 //@TODO:  fix icon type in Button
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<StyledButtonProps & Omit<ButtonProps, 'onPress' & 'mode'>> = ({
   title = '',
   onPress,
   mode = 'text',
