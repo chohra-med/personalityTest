@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { SectionTitle } from '~/components/Text'
 import { questionsSelectors } from '~/redux/questions/questions'
 import { List, RadioButton, Switch } from 'react-native-paper'
+import { AppTheme } from 'containers/AppThemeProvider'
 
 
 export type QuestionContainerProps = {
@@ -17,14 +18,14 @@ export type QuestionContainerProps = {
 const AnswerContainer = styled.View`
 margin-top: ${({ theme }) => theme.space.s};
 width:${({ theme }) => theme.spaceNumbers.screenWidth - theme.spaceNumbers.xxxxl}px;
-background-color:${({ theme }) => theme.colors.white};
+background-color:${({ theme }) => theme.colors.background};
 align-self:center;
 border-width:0.5px;
-border-color:${({ theme }) => theme.colors.gray800};
+border-color:${({ theme }) => theme.colors.onSurface};
 `
 
 const StyledListItem = styled(List.Item).attrs(
-    ({ description, theme }: { description: string, theme }) => ({
+    ({ description, theme }: { description: string, theme: AppTheme }) => ({
         titleStyle: {
             fontFamily: theme.fonts.bold,
             fontSize: description
@@ -41,7 +42,7 @@ const StyledListItem = styled(List.Item).attrs(
 )`
     background-color: ${({ theme }) => theme.colors?.background};
     padding-horizontal: ${({ theme }) => theme.space.xl};
-    border-bottom-color: ${({ theme }) => theme.colors.purple900};
+    border-bottom-color: ${({ theme }) => theme.color?.onSurface};
     border-bottom-width: 1px;
     border-bottom-width:  1px ;
     justify-content: center;

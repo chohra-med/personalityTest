@@ -1,13 +1,13 @@
 import {colors} from './Colors';
 import {space, spaceNumbers} from './Space';
 import {fontSizeNumbers} from './Typography';
-import {DefaultTheme} from 'react-native-paper';
+import {MD3LightTheme, MD3DarkTheme} from 'react-native-paper';
 
 const lightTheme = {
   myOwnProperty: true,
-  ...DefaultTheme,
+  ...MD3LightTheme,
   colors: {
-    ...DefaultTheme.colors,
+    ...MD3LightTheme.colors,
     ...colors.light,
   },
   space,
@@ -17,15 +17,15 @@ const lightTheme = {
 };
 const darkTheme = {
   myOwnProperty: true,
-  ...DefaultTheme,
+  ...MD3DarkTheme,
   colors: {
-    ...DefaultTheme.colors,
+    ...MD3DarkTheme.colors,
     ...colors.dark,
   },
-
   space,
   spaceNumbers,
   fontSizeNumbers,
+  roundness: 2,
 };
 
 export {lightTheme, darkTheme};

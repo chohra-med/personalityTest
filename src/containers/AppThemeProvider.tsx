@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   MD3Theme as NavigationDefaultTheme,
-  Provider as PaperProvider
+  Provider as PaperProvider,
+  useTheme
 } from 'react-native-paper'
 import { useSelector } from 'react-redux'
 import { ThemeProvider, DefaultTheme as StyledDefaultTheme, } from 'styled-components/native'
@@ -13,12 +14,15 @@ import appConfigSelectors from '~/redux/appConfig/appConfigSelectors'
 
 
 
-import { fontMap } from '~/theme/Typography'
+import { IFontGroup, fontMap, fontConfig } from '~/theme/Typography'
 import { lightTheme, darkTheme } from '~/theme/index'
 
 
-type Theme = StyledDefaultTheme
 
+
+export type AppTheme = typeof lightTheme & IFontGroup;
+
+export const useAppTheme = () => useTheme<AppTheme>();
 
 interface AppThemeProviderProps {
   children: React.ReactNode
@@ -42,7 +46,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
 
 
   const themeColor = isDarkTheme ? darkTheme : lightTheme
-  const colorAppTheme: Theme = { ...themeColor, fonts }
+  const colorAppTheme: AppTheme = { ...themeColor, fontConfig }
 
   return (
     <ThemeProvider theme={colorAppTheme}>

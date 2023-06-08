@@ -52,10 +52,10 @@ const Label = styled(StyledText) <Pick<TextInputProps, 'error'>>`
 const StyledInput = styled(TextInputRN) <Pick<TextInputProps, 'error'>>`
   border-bottom-width: 1px;
   border-bottom-color: ${({ error, theme }) =>
-    error ? theme.colors.chCoral : theme.colors.grey[300]};
+    error ? theme.colors.chCoral : theme.colors.onError};
   width: 96%;
   padding-vertical: ${(props) => props.theme.space.s};
-  color: ${(props) => props.theme.colors.chBlue};
+  color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fontSizeNumbers.s}px;
   font-family: ${(props) => props.theme.fonts.regular};
   text-align: ${I18nManager.isRTL ? 'right' : 'left'};
@@ -70,7 +70,7 @@ const ButtonContainer = styled(View)`
 `;
 
 const ErrorMessage = styled(StyledText)`
-  color: ${(props) => props.theme.colors.chCoral};
+  color: ${(props) => props.theme.colors.onError};
   text-align: left;
   margin-top: 28px;
 `;

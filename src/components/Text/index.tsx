@@ -39,7 +39,7 @@ export const ScreenTitle: React.FC<StyledTextProps> = ({
       textAlign="left"
       fontFamily={theme?.fonts.bold}
       fontSize={theme?.fontSizeNumbers.s}
-      color={theme?.colors.gray60}
+      color={theme?.colors.tertiary}
       marginLeft="l"
       marginBottom="m"
       {...props}
@@ -60,7 +60,7 @@ export const SectionTitle: React.FC<StyledTextProps> = ({
       fontFamily={theme?.fonts.bold}
       fontWeight={600}
       fontSize={theme?.fontSizeNumbers.s}
-      color={theme?.colors.gray80}
+      color={theme?.colors.tertiary}
       marginLeft="l"
       marginBottom="m"
       {...props}
@@ -80,7 +80,7 @@ export const SectionText: React.FC<StyledTextProps> = ({
       textAlign="left"
       fontFamily={theme?.fonts.regular}
       fontSize={theme?.fontSizeNumbers.xs}
-      color={theme?.colors.gray60}
+      color={theme?.colors.tertiary}
       marginLeft="l"
       marginBottom="m"
       {...props}
@@ -99,8 +99,8 @@ export const ToastTitle: React.FC<StyledTextProps> = ({
     <StyledText
       textAlign="left"
       fontFamily={theme?.fonts.bold}
-      fontSize={theme?.fontSizeNumbers.xxs}
-      color={theme?.colors.text}
+      fontSize={theme?.fontSizeNumbers.xs}
+      color={theme?.colors.tertiary}
       {...props}
     >
       {children}

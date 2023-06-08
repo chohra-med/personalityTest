@@ -14,10 +14,10 @@ export type QuestionContainerProps = {
 const ResultContainer = styled.View`
 margin-top: ${({ theme }) => theme.space.s};
 width:${({ theme }) => theme.spaceNumbers.screenWidth - theme.spaceNumbers.xxxxl}px;
-background-color:${({ theme }) => theme.colors.white};
+background-color:${({ theme }) => theme.colors.background};
 align-self:center;
 border-width:0.5px;
-border-color:${({ theme }) => theme.colors.gray800};
+border-color:${({ theme }) => theme.colors.onSurface};
 `
 
 
