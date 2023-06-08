@@ -1,7 +1,7 @@
 import {colors} from './Colors';
 import {space, spaceNumbers} from './Space';
 import {fontSizeNumbers} from './Typography';
-import { DefaultTheme } from 'react-native-paper'
+import {DefaultTheme} from 'react-native-paper';
 
 const lightTheme = {
   myOwnProperty: true,
@@ -28,5 +28,4 @@ const darkTheme = {
   fontSizeNumbers,
 };
 
-
-export  {lightTheme, darkTheme};;
+export {lightTheme, darkTheme};

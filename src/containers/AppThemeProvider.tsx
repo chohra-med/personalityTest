@@ -1,14 +1,28 @@
 import React from 'react'
-import { Provider as PaperProvider } from 'react-native-paper'
+import {
+  MD3Theme as NavigationDefaultTheme,
+  Provider as PaperProvider
+} from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import { ThemeProvider } from 'styled-components/native'
+import { ThemeProvider, DefaultTheme as StyledDefaultTheme, } from 'styled-components/native'
 import appConfigSelectors from '~/redux/appConfig/appConfigSelectors'
+
+// import merge from 'deepmerge';
+
+// const CombinedDefaultTheme = merge(StyledDefaultTheme, NavigationDefaultTheme);
+
+
 
 import { fontMap } from '~/theme/Typography'
 import { lightTheme, darkTheme } from '~/theme/index'
 
+
+type Theme = StyledDefaultTheme
+
+
 interface AppThemeProviderProps {
   children: React.ReactNode
+
 }
 /*
   This wrapper around our theme provider is very useful for dynamically updating our theme
@@ -21,14 +35,14 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
 }) => {
 
   // fonts const, should have the app Fonts
-  const allFonts = fontMap.ltr;
+  const fonts = fontMap.ltr;
   // isDarkTheme, should be the boolean for dark theme
   const isDarkTheme: boolean = useSelector(appConfigSelectors.isDarkMode)
 
 
 
   const themeColor = isDarkTheme ? darkTheme : lightTheme
-  const colorAppTheme = { ...themeColor, allFonts }
+  const colorAppTheme: Theme = { ...themeColor, fonts }
 
   return (
     <ThemeProvider theme={colorAppTheme}>

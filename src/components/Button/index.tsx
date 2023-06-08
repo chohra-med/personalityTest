@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
-import { ButtonProps, Button as RNPaperButton } from 'react-native-paper'
+import { ButtonProps, Button as RNPaperButton, Text } from 'react-native-paper'
+import { SectionText } from '../Text'
 
 export type ButtonMode =
   | 'text'
@@ -12,14 +13,17 @@ export type StyledButtonProps = {
   onPress?: () => void
   title?: string
   mode?: ButtonMode
+
+
 }
 
 //@TODO:  fix icon type in Button
 
-const Button: React.FC<StyledButtonProps & Omit<ButtonProps, 'onPress' & 'mode'>> = ({
+const Button: React.FC<StyledButtonProps & Partial<Omit<ButtonProps, 'onPress' & 'mode'>>> = ({
   title = '',
   onPress,
   mode = 'text',
+  children,
   ...rest
 }) => {
   const onButtonPress = useCallback(() => {
@@ -35,7 +39,8 @@ const Button: React.FC<StyledButtonProps & Omit<ButtonProps, 'onPress' & 'mode'>
       onPress={onButtonPress}
       {...rest}
     >
-      {title}
+      {children}
+      <Text>{title}</Text>
     </RNPaperButton>
   )
 }

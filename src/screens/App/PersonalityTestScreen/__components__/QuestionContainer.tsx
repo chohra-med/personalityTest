@@ -26,14 +26,14 @@ border-color:${({ theme }) => theme.colors.gray800};
 const StyledListItem = styled(List.Item).attrs(
     ({ description, theme }: { description: string, theme }) => ({
         titleStyle: {
-            fontFamily: theme.allFonts.bold,
+            fontFamily: theme.fonts.bold,
             fontSize: description
                 ? theme.fontSizeNumbers.s
                 : theme.fontSizeNumbers.xs,
             color: theme.colors.text,
         },
         descriptionStyle: {
-            fontFamily: theme.allFonts.regular,
+            fontFamily: theme.fonts.regular,
             fontSize: theme.fontSizeNumbers.xs,
             color: theme.colors.text,
         },
@@ -61,7 +61,7 @@ const QuestionContainer: React.FC<QuestionContainerProps> = ({
         return <View />
     }
 
-    const {id, title, answers } = question
+    const { id, title, answers } = question
 
 
 
