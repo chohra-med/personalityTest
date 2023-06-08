@@ -1,6 +1,5 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 import {
-  I18nManager,
   StyleProp,
   TextInputProps as TextInputPropsRN,
   TextInput as TextInputRN,
@@ -9,8 +8,8 @@ import {
 } from 'react-native';
 import styled from 'styled-components/native';
 import { debounce } from 'lodash';
+import { StyledText } from '../Text';
 
-import StyledText from '../Text';
 
 interface TextInputProps extends TextInputPropsRN {
   style?: StyleProp<ViewStyle>;
@@ -58,16 +57,8 @@ const StyledInput = styled(TextInputRN) <Pick<TextInputProps, 'error'>>`
   color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fontSizeNumbers.s}px;
   font-family: ${(props) => props.theme.fonts.regular};
-  text-align: ${I18nManager.isRTL ? 'right' : 'left'};
 `;
 
-const Icon = styled.TouchableOpacity``;
-
-const ButtonContainer = styled(View)`
-  width: 10%;
-  justify-content: center;
-  align-items: center;
-`;
 
 const ErrorMessage = styled(StyledText)`
   color: ${(props) => props.theme.colors.onError};
@@ -92,7 +83,6 @@ const TextInput = React.forwardRef<TextInputRN, TextInputProps>(
     },
     ref,
   ) => {
-    const [passwordVisible, setPasswordVisible] = React.useState(false);
 
     const handleOnChangeTextDebouncer = useCallback(debounce(onChangeText, debouncingTime), []);
 
@@ -106,14 +96,6 @@ const TextInput = React.forwardRef<TextInputRN, TextInputProps>(
     }
 
 
-    const onIconPress = useCallback(() => {
-      if (onIconClick) {
-        onIconClick();
-      }
-      if (isPassword) {
-        setPasswordVisible((previousValue) => !previousValue);
-      }
-    }, [setPasswordVisible, onIconClick, isPassword]);
 
 
 
@@ -126,7 +108,7 @@ const TextInput = React.forwardRef<TextInputRN, TextInputProps>(
             onChangeText={handleOnChangeText}
             error={error}
             autoComplete={isPassword ? 'password' : undefined}
-            secureTextEntry={isPassword && !passwordVisible}
+            secureTextEntry={isPassword}
             placeholder={placeholder}
             {...props}
             testID={props.testID || 'input.text'} // THis has to be below {...props} because styled-components seems to set testID to undefined by default

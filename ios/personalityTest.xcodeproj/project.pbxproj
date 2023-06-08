@@ -15,6 +15,8 @@
 		19ECB9440A434B73B351BA6F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E5F487CA5014B7BA15D8F99 /* Roboto-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-personalityTest-personalityTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-personalityTest-personalityTestTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		849179562A3220F3005FEEDD /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 849179542A3220F3005FEEDD /* MaterialCommunityIcons.ttf */; };
+		849179572A3220F3005FEEDD /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 849179552A3220F3005FEEDD /* MaterialIcons.ttf */; };
 		DCF2CD9F245949D2B290969D /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A48F4B6376E42F8BAE2FC9E /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +47,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-personalityTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-personalityTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A48F4B6376E42F8BAE2FC9E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = personalityTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		843F44412A2DEE45003E7725 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		843F44422A2DEE45003E7725 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		849179542A3220F3005FEEDD /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		849179552A3220F3005FEEDD /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-personalityTest-personalityTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-personalityTest-personalityTestTests.release.xcconfig"; path = "Target Support Files/Pods-personalityTest-personalityTestTests/Pods-personalityTest-personalityTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E5F487CA5014B7BA15D8F99 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -115,8 +117,8 @@
 		3094E53DBD344379B531FA2C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				843F44422A2DEE45003E7725 /* MaterialCommunityIcons.ttf */,
-				843F44412A2DEE45003E7725 /* MaterialIcons.ttf */,
+				849179542A3220F3005FEEDD /* MaterialCommunityIcons.ttf */,
+				849179552A3220F3005FEEDD /* MaterialIcons.ttf */,
 				7A48F4B6376E42F8BAE2FC9E /* Roboto-Bold.ttf */,
 				9E5F487CA5014B7BA15D8F99 /* Roboto-Regular.ttf */,
 			);
@@ -261,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				849179562A3220F3005FEEDD /* MaterialCommunityIcons.ttf in Resources */,
+				849179572A3220F3005FEEDD /* MaterialIcons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				DCF2CD9F245949D2B290969D /* Roboto-Bold.ttf in Resources */,
 				19ECB9440A434B73B351BA6F /* Roboto-Regular.ttf in Resources */,

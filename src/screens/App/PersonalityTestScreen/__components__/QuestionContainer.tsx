@@ -24,22 +24,7 @@ border-width:0.5px;
 border-color:${({ theme }) => theme.colors.onSurface};
 `
 
-const StyledListItem = styled(List.Item).attrs(
-    ({ description, theme }: { description: string, theme: AppTheme }) => ({
-        titleStyle: {
-            fontFamily: theme.fonts.bold,
-            fontSize: description
-                ? theme.fontSizeNumbers.s
-                : theme.fontSizeNumbers.xs,
-            color: theme.colors.text,
-        },
-        descriptionStyle: {
-            fontFamily: theme.fonts.regular,
-            fontSize: theme.fontSizeNumbers.xs,
-            color: theme.colors.text,
-        },
-    })
-)`
+const StyledListItem = styled(List.Item)`
     background-color: ${({ theme }) => theme.colors?.background};
     padding-horizontal: ${({ theme }) => theme.space.xl};
     border-bottom-color: ${({ theme }) => theme.color?.onSurface};

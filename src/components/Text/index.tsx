@@ -80,7 +80,7 @@ export const SectionText: React.FC<StyledTextProps> = ({
       textAlign="left"
       fontFamily={theme?.fonts.regular}
       fontSize={theme?.fontSizeNumbers.xs}
-      color={theme?.colors.tertiary}
+      color={theme?.colors.onPrimary}
       marginLeft="l"
       marginBottom="m"
       {...props}

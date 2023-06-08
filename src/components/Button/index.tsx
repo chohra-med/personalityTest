@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react'
-import { ButtonProps, Button as RNPaperButton, Text } from 'react-native-paper'
+import React, { useCallback, useState } from 'react'
+import { ButtonProps, Button as RNPaperButton } from 'react-native-paper'
 import { SectionText } from '../Text'
+import { debounce } from 'lodash'
 
 export type ButtonMode =
   | 'text'
@@ -12,35 +13,45 @@ export type ButtonMode =
 export type StyledButtonProps = {
   onPress?: () => void
   title?: string
+  disabled?: boolean
   mode?: ButtonMode
-
-
 }
 
 //@TODO:  fix icon type in Button
 
-const Button: React.FC<StyledButtonProps & Partial<Omit<ButtonProps, 'onPress' & 'mode'>>> = ({
+const Button: React.FC<StyledButtonProps & Partial<Omit<ButtonProps, 'onPress' & 'mode' & 'disabled'>>> = ({
   title = '',
   onPress,
   mode = 'text',
   children,
+  disabled,
   ...rest
 }) => {
-  const onButtonPress = useCallback(() => {
+  const [loading, setLoading] = useState(false)
+
+  const handleOnPressDebouncer = useCallback(debounce(onPress, 300), []);
+
+
+
+  const handleOnpress = useCallback(() => {
     if (onPress) {
-      onPress()
+      handleOnPressDebouncer()
+
     }
-  }, [onPress])
+  }, [onPress]);
+
 
   return (
     <RNPaperButton
       labelStyle={mode === 'text' && { textDecorationLine: 'underline' }}
       mode={mode}
-      onPress={onButtonPress}
+      loading={loading}
+      onPress={disabled || loading ? () => { } : handleOnpress}
+
       {...rest}
     >
       {children}
-      <Text>{title}</Text>
+      <SectionText>{title}</SectionText>
     </RNPaperButton>
   )
 }
