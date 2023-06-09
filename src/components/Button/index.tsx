@@ -29,14 +29,14 @@ const Button: React.FC<StyledButtonProps & Partial<Omit<ButtonProps, 'onPress' &
 }) => {
   const [loading, setLoading] = useState(false)
 
-  const handleOnPressDebouncer = useCallback(debounce(onPress, 300), []);
 
 
 
   const handleOnpress = useCallback(() => {
     if (onPress) {
-      handleOnPressDebouncer()
-
+      setLoading(true);
+      debounce(onPress, 300)
+      setLoading(false);
     }
   }, [onPress]);
 
