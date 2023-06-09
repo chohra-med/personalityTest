@@ -1,26 +1,19 @@
 import React from 'react'
 import {
-  MD3Theme as NavigationDefaultTheme,
   Provider as PaperProvider,
   useTheme
 } from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import { ThemeProvider, DefaultTheme as StyledDefaultTheme, } from 'styled-components/native'
+import { ThemeProvider } from 'styled-components/native'
 import appConfigSelectors from '~/redux/appConfig/appConfigSelectors'
 
-// import merge from 'deepmerge';
-
-// const CombinedDefaultTheme = merge(StyledDefaultTheme, NavigationDefaultTheme);
-
-
-
-import { IFontGroup, fontMap, fontConfig } from '~/theme/Typography'
+import { fontMap, fontConfig } from '~/theme/Typography'
 import { lightTheme, darkTheme } from '~/theme/index'
 
 
 
 
-export type AppTheme = typeof lightTheme & IFontGroup;
+export type AppTheme = typeof lightTheme & typeof fontConfig;
 
 export const useAppTheme = () => useTheme<AppTheme>();
 
@@ -45,12 +38,12 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
 
 
 
-  const themeColor = isDarkTheme ? darkTheme : lightTheme
-  const colorAppTheme: AppTheme = { ...themeColor, fontConfig }
+  const theme = isDarkTheme ? darkTheme : lightTheme
+  const AppTheme = { ...theme, fontConfig }
 
   return (
-    <ThemeProvider theme={colorAppTheme}>
-      <PaperProvider theme={colorAppTheme}>{children}</PaperProvider>
+    <ThemeProvider theme={AppTheme}>
+      <PaperProvider theme={AppTheme}>{children}</PaperProvider>
     </ThemeProvider>
   )
 }
