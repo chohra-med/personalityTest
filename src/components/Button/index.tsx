@@ -11,7 +11,7 @@ export type ButtonMode =
   | 'contained-tonal'
 
 export type StyledButtonProps = {
-  onPress?: () => void
+  onPress: () => void
   title?: string
   disabled?: boolean
   mode?: ButtonMode
@@ -24,20 +24,23 @@ const Button: React.FC<StyledButtonProps & Partial<Omit<ButtonProps, 'onPress' &
   onPress,
   mode = 'text',
   children,
-  disabled,
+  disabled = false,
   ...rest
 }) => {
   const [loading, setLoading] = useState(false)
 
 
 
+  const handleOnPressDebouncer = useCallback(debounce(() => onPress(), 300), []);
 
   const handleOnpress = useCallback(() => {
-    if (onPress) {
-      setLoading(true);
-      debounce(onPress, 300)
+    setLoading(true);
+    handleOnPressDebouncer()
+    setTimeout(() => {
       setLoading(false);
-    }
+    }, 500);
+
+
   }, [onPress]);
 
 
@@ -46,7 +49,7 @@ const Button: React.FC<StyledButtonProps & Partial<Omit<ButtonProps, 'onPress' &
       labelStyle={mode === 'text' && { textDecorationLine: 'underline' }}
       mode={mode}
       loading={loading}
-      onPress={disabled || loading ? () => { } : handleOnpress}
+      onPress={handleOnpress}
 
       {...rest}
     >

@@ -35,6 +35,7 @@ function HomeScreen() {
     }, [loadAllQuestions])
 
     const handleStartTest = useCallback(() => {
+        console.log('debouncer')
         navigation.navigate(AppScreens.PERSONALITY_TEST_SCREEN)
     }, [navigation])
 

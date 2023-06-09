@@ -1,4 +1,3 @@
-import {MD3Typescale} from 'react-native-paper/lib/typescript/src/types';
 import adjustSize from '~/utils/helpers/adjustSize';
 
 const allFonts = {
@@ -42,14 +41,6 @@ const fontMap: Record<LanguagesWithFonts, IFontGroup> = {
 };
 
 type ValidSpaceKeys = number | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
-const fontSizes: {[K in ValidSpaceKeys]: string} = {
-  xs: '11px',
-  s: '14px',
-  m: '16px',
-  l: '18px',
-  xl: '22px',
-  xxl: '30px',
-};
 const fontSizeNumbers: {[K in ValidSpaceKeys]: number} = {
   xs: adjustSize(11),
   s: adjustSize(14),
@@ -59,4 +50,4 @@ const fontSizeNumbers: {[K in ValidSpaceKeys]: number} = {
   xxl: adjustSize(30),
 };
 
-export {allFonts, fontSizes, fontConfig, fontSizeNumbers, fontMap};
+export {allFonts, fontConfig, fontSizeNumbers, fontMap};
