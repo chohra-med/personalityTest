@@ -1,7 +1,6 @@
 import styled from 'styled-components/native'
 import * as React from 'react'
 import { TextProps } from 'react-native'
-import { Text } from 'react-native-paper'
 import {
   ColorProps,
   LayoutProps,

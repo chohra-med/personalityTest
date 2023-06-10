@@ -31,7 +31,7 @@ const StyledButton = styled(Button)`
 function PersonalityTestScreen() {
 
   const [pageNumber, setPageNumber] = useState(0)
-  const [answersList, setAnswersList] = useState([4])
+  const [answersList, setAnswersList] = useState<number[]>([])
   const { t } = useTranslation('common')
 
   const goToNextQuestion = () => {
@@ -45,12 +45,12 @@ function PersonalityTestScreen() {
   const onChooseAnswer = (answerId: string) => {
     let nextAnswerList = answersList
     nextAnswerList[pageNumber] = parseInt(answerId)
+
     setAnswersList(nextAnswerList)
   }
 
   return (
     <StyledSafeAreaView testID="screen.PersonalityTestScreen">
-      <ScreenTitle>{t('common:General.welcome')}</ScreenTitle>
       {pageNumber < 3 ?
         <>
           <QuestionContainer questionId={pageNumber} onPress={(answerId) => onChooseAnswer(answerId)} />
