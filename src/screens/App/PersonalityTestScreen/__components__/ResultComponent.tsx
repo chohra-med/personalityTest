@@ -19,6 +19,14 @@ align-self:center;
 border-width:0.5px;
 border-color:${({ theme }) => theme.colors.onSurface};
 `
+const TextResult = styled(SectionTitle)`
+margin-top: ${({ theme }) => theme.space.s};
+width:${({ theme }) => theme.spaceNumbers.screenWidth - theme.spaceNumbers.xxxxl}px;
+background-color:${({ theme }) => theme.colors.background};
+align-self:center;
+border-width:0.5px;
+border-color:${({ theme }) => theme.colors.onSurface};
+`
 
 
 const ResultComponent: React.FC<QuestionContainerProps> = ({
@@ -50,7 +58,7 @@ const ResultComponent: React.FC<QuestionContainerProps> = ({
         <ResultContainer>
             <SectionTitle>{t('common:General.youAre')}</SectionTitle>
             {result > 6 ? <SectionTitle>{t('common:General.introvert')}</SectionTitle> :
-                <SectionTitle>{t('common:General.extrovert')}</SectionTitle>
+                <TextResult>{t('common:General.extrovert')}</TextResult>
             }
         </ResultContainer>
     )

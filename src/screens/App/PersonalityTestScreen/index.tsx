@@ -5,7 +5,7 @@ import styled from 'styled-components/native'
 import { questionsSelectors } from '~/redux/questions/questions'
 import { useSelector } from 'react-redux'
 import Button from '~/components/Button'
-import { SectionTitle } from '~/components/Text'
+import { ScreenTitle, SectionTitle } from '~/components/Text'
 import { useNavigation } from '@react-navigation/native'
 import QuestionContainer from './__components__/QuestionContainer'
 import ResultComponent from './__components__/ResultComponent'
@@ -49,7 +49,7 @@ function PersonalityTestScreen() {
 
   return (
     <StyledSafeAreaView testID="screen.PersonalityTestScreen">
-      <SectionTitle>{t('common:General.welcome')}</SectionTitle>
+      <ScreenTitle>{t('common:General.welcome')}</ScreenTitle>
       {pageNumber < 3 ?
         <>
           <QuestionContainer questionId={pageNumber} onPress={(answerId) => onChooseAnswer(answerId)} />

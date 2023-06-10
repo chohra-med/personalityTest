@@ -1,6 +1,7 @@
 import styled from 'styled-components/native'
 import * as React from 'react'
 import { TextProps } from 'react-native'
+import { Text } from 'react-native-paper'
 import {
   ColorProps,
   LayoutProps,
@@ -11,7 +12,7 @@ import {
   space,
   typography,
 } from 'styled-system'
-import { useTheme } from 'styled-components'
+import { useAppTheme } from '../../containers/AppThemeProvider'
 
 export interface StyledTextProps
   extends ColorProps,
@@ -33,15 +34,16 @@ export const ScreenTitle: React.FC<StyledTextProps> = ({
   children,
   ...props
 }) => {
-  const theme = useTheme()
+  const theme = useAppTheme()
+  console.log({ bodyLarge: theme?.fonts.bodyMedium })
   return (
     <StyledText
       textAlign="left"
-      fontFamily={theme?.fonts.bold}
-      fontSize={theme?.fontSizeNumbers.s}
       color={theme?.colors.tertiary}
       marginLeft="l"
       marginBottom="m"
+      {...theme?.fonts.headlineLarge}
+
       {...props}
     >
       {children}
@@ -53,16 +55,15 @@ export const SectionTitle: React.FC<StyledTextProps> = ({
   children,
   ...props
 }) => {
-  const theme = useTheme()
+  const theme = useAppTheme()
+
   return (
     <StyledText
       textAlign="left"
-      fontFamily={theme?.fonts.bold}
-      fontWeight={600}
-      fontSize={theme?.fontSizeNumbers.s}
-      color={theme?.colors.tertiary}
+      color={theme?.colors.onBackground}
       marginLeft="l"
       marginBottom="m"
+      {...theme?.fonts.titleMedium}
       {...props}
     >
       {children}
@@ -74,15 +75,14 @@ export const SectionText: React.FC<StyledTextProps> = ({
   children,
   ...props
 }) => {
-  const theme = useTheme()
+  const theme = useAppTheme()
   return (
     <StyledText
       textAlign="left"
-      fontFamily={theme?.fonts.regular}
-      fontSize={theme?.fontSizeNumbers.xs}
       color={theme?.colors.onPrimary}
       marginLeft="l"
       marginBottom="m"
+      {...theme?.fonts.labelMedium}
       {...props}
     >
       {children}
@@ -94,13 +94,13 @@ export const ToastTitle: React.FC<StyledTextProps> = ({
   children,
   ...props
 }) => {
-  const theme = useTheme()
+  const theme = useAppTheme()
   return (
     <StyledText
       textAlign="left"
-      fontFamily={theme?.fonts.bold}
-      fontSize={theme?.fontSizeNumbers.xs}
       color={theme?.colors.tertiary}
+      {...theme?.fonts.titleMedium}
+
       {...props}
     >
       {children}
