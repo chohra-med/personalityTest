@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect } from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components/native'
 import { questionsActions } from '~/redux/questions/questions'
 import useActions from '~/hooks/useActions'
-import { useSelector } from 'react-redux'
 import Button from '~/components/Button'
-import { SectionText, SectionTitle } from '~/components/Text'
+import { SectionTitle } from '~/components/Text'
 import { useNavigation } from '@react-navigation/native'
 import { OnAppScreenNavigationProps } from '~/navigation/types'
 import AppScreens from '~/navigation/AppNavigation/AppScreens'
@@ -21,7 +20,6 @@ const StyledSafeAreaView = styled(SafeAreaView)`
 
 const StyledButton = styled(Button)`
   margin-top: ${({ theme }) => theme.space.xxxxxl};
-  
   align-items:center;
 `
 function HomeScreen() {
@@ -35,7 +33,6 @@ function HomeScreen() {
     }, [loadAllQuestions])
 
     const handleStartTest = useCallback(() => {
-        console.log('debouncer')
         navigation.navigate(AppScreens.PERSONALITY_TEST_SCREEN)
     }, [navigation])
 

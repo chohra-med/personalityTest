@@ -20,11 +20,12 @@ const ButtonContainer = styled.View`
   flex-direction:row;
   width: ${({ theme }) => theme.space.screenWidth};
   justify-content:space-around;
-  padding-top: ${({ theme }) => theme.space.xxl};
+  padding-top: ${({ theme }) => theme.space.l};
 `
 
 const StyledButton = styled(Button)`
-  margin-top: ${({ theme }) => theme.space.xxxxl};
+  margin-top: ${({ theme }) => theme.space.xl};
+
   align-items:center;
 `
 function PersonalityTestScreen() {

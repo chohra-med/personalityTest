@@ -51,9 +51,6 @@ const ResultComponent: React.FC<QuestionContainerProps> = ({
 
 
 
-
-
-
     return (
         <ResultContainer>
             <SectionTitle>{t('common:General.youAre')}</SectionTitle>

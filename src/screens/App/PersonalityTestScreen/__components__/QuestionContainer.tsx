@@ -5,8 +5,7 @@ import styled from 'styled-components/native'
 import { useSelector } from 'react-redux'
 import { SectionTitle } from '~/components/Text'
 import { questionsSelectors } from '~/redux/questions/questions'
-import { List, RadioButton, Switch } from 'react-native-paper'
-import { AppTheme } from 'containers/AppThemeProvider'
+import { List, RadioButton } from 'react-native-paper'
 
 
 export type QuestionContainerProps = {
@@ -68,7 +67,8 @@ const QuestionContainer: React.FC<QuestionContainerProps> = ({
             titleNumberOfLines={3}
             description={<RadioButton.Group onValueChange={value => selectAnswer(value)} value={answeValue}  >
                 {answers.map((answer) => (<AnswerContainer key={answer.id} >
-                    <RadioButton.Item status='unchecked' label={answer.title} value={String(answer.id)} />
+                    <RadioButton.Item status='unchecked' label={answer.title}
+                        labelVariant='labelMedium' value={String(answer.id)} />
                 </AnswerContainer>)
                 )
                 }
